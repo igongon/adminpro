@@ -10,6 +10,7 @@ export class GraficoDonaComponent implements OnInit {
   @Input() labels: string[] = [];
   @Input() data: number[] = [];
   @Input() legend: boolean = true;
+
   type: string = 'doughnut';
 
   constructor() { }
