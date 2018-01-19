@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
@@ -6,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { Graficas1Component } from './graficas1/graficas1.component';
 import { ProgressComponent } from './progress/progress.component';
 import { SharedModule } from '../shared/shared.module';
+import { ComponentsModule } from '../components/components.module';
 
 
 
@@ -18,7 +20,8 @@ import { SharedModule } from '../shared/shared.module';
     ],
     imports: [
         PAGES_ROUTES,
-        SharedModule
+        SharedModule,
+        ComponentsModule
     ],
     exports: [
         PagesComponent,

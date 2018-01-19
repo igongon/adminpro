@@ -1,0 +1,13 @@
+<h3>{{ caption }} - {{value }}</h3>
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <button class="btn bg-primary btn-outline-secondary" type="button" (click)="setValue(-5)"><i class="fa fa-minus" aria-hidden="true"></i></button>
+    </div>
+
+    <input #txtValue type="number" class="form-control" name="value" [(ngModel)]="value" (ngModelChange)="onModelChange($event)" max="100" min="0">
+
+    <div class="input-group-prepend">
+        <button class="btn bg-primary btn-outline-secondary" type="button" (click)="setValue(5)"><i class="fa fa-plus" aria-hidden="true"></i></button>
+    </div>
+</div>
