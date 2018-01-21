@@ -13,7 +13,6 @@ export class AppComponent {
 
   constructor (private _settings: SettingsService) {
     init_plugins();
-    console.log('iniciado');
   }
 }
 

@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivationEnd } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import { Title } from '@angular/platform-browser';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-breadcrumbs',
@@ -7,9 +12,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BreadcrumbsComponent implements OnInit {
 
-  constructor() { }
+  label: string = '';
+
+  constructor(
+    private router: Router,
+    public title: Title) {
+      this.getRouteData()
+      .subscribe(data => {
+        this.label = data.title;
+        this.title.setTitle(data.title);
+      });
+  }
 
   ngOnInit() {
+  }
+
+  getRouteData() {
+    return this.router.events
+    .filter(event => event instanceof ActivationEnd && event.snapshot.firstChild == null)
+    .map((event: ActivationEnd) => event.snapshot.data);
   }
 
 }
